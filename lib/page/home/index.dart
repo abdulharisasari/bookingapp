@@ -144,34 +144,33 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 15.h),
               Expanded(
-                child: _isHeaderFetch
-                    ? Center(child: CircularProgressIndicator())
-                    : Row(
-                        children: [
-                          Expanded(
-                            child: ListView.builder(
-                              controller: _leftScrollController,
-                              itemCount: leftColumn.length,
-                              itemBuilder: (context, index) {
-                                final hotel = leftColumn[index];
-                                return _buildHotelCard(hotel);
-                              },
-                            ),
-                          ),
-                          SizedBox(width: 12),
-                          Expanded(
-                            child: ListView.builder(
-                              controller: _rightScrollController,
-                              itemCount: rightColumn.length,
-                              itemBuilder: (context, index) {
-                                final hotel = rightColumn[index];
-                                return _buildHotelCard(hotel);
-                              },
-                            ),
-                          ),
-                        ],
+                child: _isHeaderFetch ? Center(child: CircularProgressIndicator()): Row(
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                        controller: _leftScrollController,
+                        itemCount: leftColumn.length,
+                        itemBuilder: (context, index) {
+                          final hotel = leftColumn[index];
+                          return _buildHotelCard(hotel);
+                        },
                       ),
+                    ),
+                    SizedBox(width: 12),
+                    Expanded(
+                      child: ListView.builder(
+                        controller: _rightScrollController,
+                        itemCount: rightColumn.length,
+                        itemBuilder: (context, index) {
+                          final hotel = rightColumn[index];
+                          return _buildHotelCard(hotel);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
+              SizedBox(height: 20.h)
             ],
           ),
         ),

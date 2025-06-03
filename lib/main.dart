@@ -1,5 +1,6 @@
 
 import 'package:bookingapp/provider/hotel_provider.dart';
+import 'package:bookingapp/provider/schedule_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +43,7 @@ class _MyAppState extends State<MyApp> {
           return MultiProvider(
             providers: [
               ChangeNotifierProvider(create: (_) => HotelProvider()),
-             
+              ChangeNotifierProvider(create: (_) => ScheduleProvider()),
             ],
             child: MaterialApp(
               title: 'Booking App',

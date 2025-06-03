@@ -28,11 +28,9 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 15.sp),
-        child: pages[_selectedIndex],
-      )),
+      body: pages[_selectedIndex],
       bottomNavigationBar: Container(
+        height: 70.h,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
         decoration: const BoxDecoration(
           color: Colors.white,
