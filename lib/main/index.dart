@@ -79,12 +79,12 @@ class _MainPageState extends State<MainPage> {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFF522504).withOpacity(0.1) : Colors.transparent,
+          color: isSelected ?  Color(darkGrayColor).withOpacity(0.1) : Colors.transparent,
           borderRadius: BorderRadius.circular(30),
         ),
         child: Row(
           children: [
-            Image.asset(isSelected ? icon: iconOutline, color: Color(primaryColor),height: 20.h,width: 20.w),
+            Image.asset(isSelected ? icon: iconOutline, color: Color(primaryColor),height: 24.h,width: 24.w),
             if (isSelected) ...[
               const SizedBox(width: 6),
               Text(

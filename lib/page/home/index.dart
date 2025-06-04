@@ -96,40 +96,40 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.location_on_outlined, size: 24, color: Color(0xFF522504)),
+                      Icon(Icons.location_on_outlined, size: 24.sp, color: Color(primaryColor)),
                       SizedBox(width: 4),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Current location",
-                            style: TextStyle(fontSize: 12, color: Colors.grey),
+                            style: TextStyle(fontSize: 12.sp, color: Colors.grey),
                           ),
                           Text(
                             "Jakarta, ID",
-                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
                     ],
                   ),
                   Container(
-                    height: 40,
-                    width: 40,
+                    height: 40.h,
+                    width: 40.w,
                     decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Color(0xFFECECEC)),
-                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(width: 1.sp, color: Color(0xFFECECEC)),
+                      borderRadius: BorderRadius.circular(12.r),
                     ),
                     child: IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.notifications_none_outlined, size: 22),
+                      icon: Icon(Icons.notifications_none_outlined, size: 22.sp),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               SizedBox(
-                height: 54,
+                height: 54.h,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -156,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                     ),
-                    SizedBox(width: 12),
+                    SizedBox(width: 12.w),
                     Expanded(
                       child: ListView.builder(
                         controller: _rightScrollController,
@@ -191,26 +191,19 @@ class _HomePageState extends State<HomePage> {
       child: Card(
         shadowColor: Colors.black54,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+          padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
           decoration: BoxDecoration(
             color: isSelected ? Color(primaryColor) : Colors.grey[100],
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.r),
             
           ),
           child: Row(
             children: [
-              Icon(
-                _getIconForCategory(categoryName),
-                color: isSelected ? Colors.white : Colors.grey,
-                size: 18,
-              ),
-              SizedBox(width: 6),
+              Icon(_getIconForCategory(categoryName), color: isSelected ? Colors.white : Colors.grey, size: 18.sp),
+              SizedBox(width: 6.w),
               Text(
                 categoryName,
-                style: TextStyle(
-                  color: isSelected ? Colors.white : Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: TextStyle(color: isSelected ? Colors.white : Colors.grey, fontWeight: FontWeight.w500),
               ),
             ],
           ),
@@ -238,28 +231,28 @@ class _HomePageState extends State<HomePage> {
   Widget _buildHotelCard(HotelModel hotel) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, detailRoute,arguments: DetailArgument(img: hotel.img));
+        Navigator.pushNamed(context, detailRoute,arguments: DetailArgument(img: hotel.img, name: hotel.name, price: hotel.price));
       },
       child: Card(
-        margin: EdgeInsets.only(bottom: 15),
+        margin: EdgeInsets.only(bottom: 15.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(12.r),
               child: Stack(
                 children: [
                   Image.network(
                     hotel.img ?? '',
                     height: 200.h,
-                    width: 155.w,
+                    width: 160.w,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
                         height: 200.h,
                         width: 155.w,
                         color: Colors.grey[200],
-                        child: Icon(Icons.broken_image, size: 50),
+                        child: Icon(Icons.broken_image, size: 50.sp),
                       );
                     },
                   ),
@@ -268,10 +261,7 @@ class _HomePageState extends State<HomePage> {
                     right: 5.h,
                     child: Container(
                       padding: EdgeInsets.all(5.sp),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle
-                      ),
+                      decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
                       child: Image.asset(icHomeFavoritOn,height: 20.h,width: 20.w)
                     ),
                   ),
@@ -280,32 +270,40 @@ class _HomePageState extends State<HomePage> {
                     left: 0,
                     right: 0,
                     child: Container(
-                      height: 47,
-                      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                      height: 50.h,
+                      padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 5.h),
                       decoration: BoxDecoration(
                         color: Color(primaryColor).withOpacity(0.73),
-                        borderRadius: BorderRadius.all(Radius.circular(8))
+                        borderRadius: BorderRadius.all(Radius.circular(12.r))
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             hotel.name ?? '',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14.sp,
-                            ),
                             overflow: TextOverflow.ellipsis,
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14.sp)
                           ),
-                          Text(
-                            "${hotel.price}/nigth",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 10.sp,
-                            ),
-                            overflow: TextOverflow.ellipsis,
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "\$${hotel.price}/nigth",
+                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 10.sp),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "5.0 ",
+                                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 10.sp),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  Icon(Icons.star, color: Colors.yellow, size: 16.sp),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -314,11 +312,9 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            
           ],
         ),
       ),
     );
   }
-
 }

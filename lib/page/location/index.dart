@@ -188,7 +188,6 @@ class _LocationPageState extends State<LocationPage> {
     return Scaffold(
       body: Stack(
         children: [
-          
           GoogleMap(
             initialCameraPosition: initialCameraPosition,
             onMapCreated: (controller) => mapController = controller,
@@ -232,7 +231,7 @@ class _LocationPageState extends State<LocationPage> {
             top: 30,
             left: 15,
             right: 15,
-            child: AppBarBooking(title: " ", icon: icLocationFilter, onPressed: () {})
+            child: AppBarBooking(title: " Location ", icon: icLocationFilter, onPressed: () {})
           ),
 
           Positioned(

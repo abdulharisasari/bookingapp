@@ -1,4 +1,5 @@
 class DetailArgument {
-  final String? img;
-  const DetailArgument({this.img});
+  final String? img,name;
+  final int? price;
+  const DetailArgument({this.img, this.name, this.price});
 }

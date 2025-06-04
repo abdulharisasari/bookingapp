@@ -11,9 +11,13 @@ const String icNavProfileOn = 'assets/images/ic_nav_profile_on.png';
 const String icHomeFavorit = 'assets/images/ic_home_favorite.png';
 const String icHomeFavoritOn = 'assets/images/ic_home_favorite_on.png';
 
-const String icLocationPinMap = 'assets/images/pin_map.png';
+const String icLocationPinMap = 'assets/images/ic_pin_map.png';
 const String icLocationFilter = 'assets/images/ic_location_filter.png';
+const String icDetailPinOutline = 'assets/images/ic_pin_map_outline.png';
 const String icDetailMenu = 'assets/images/ic_detail_menu.png';
 const String icScheduleSetting = 'assets/images/ic_schedule_settings.png';
 
 const String icProfileLogout = 'assets/images/ic_profile_logout.png';
+const String icProfilePhone = 'assets/images/ic_profile_phone.png';
+const String icProfileEmail = 'assets/images/ic_profile_email.png';
+const String icProfilePassword = 'assets/images/ic_profile_password.png';
